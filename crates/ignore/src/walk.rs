@@ -370,9 +370,9 @@ impl DirEntryRaw {
     // (e.g. wasm32).
     #[cfg(not(any(windows, unix)))]
     fn from_entry_os(
-        depth: usize,
-        ent: &fs::DirEntry,
-        ty: fs::FileType,
+        _depth: usize,
+        _ent: &fs::DirEntry,
+        _ty: fs::FileType,
     ) -> Result<DirEntryRaw, Error> {
         Err(Error::Io(io::Error::new(
             io::ErrorKind::Other,
@@ -420,9 +420,9 @@ impl DirEntryRaw {
     // (e.g. wasm32).
     #[cfg(not(any(windows, unix)))]
     fn from_path(
-        depth: usize,
-        pb: PathBuf,
-        link: bool,
+        _depth: usize,
+        _pb: PathBuf,
+        _link: bool,
     ) -> Result<DirEntryRaw, Error> {
         Err(Error::Io(io::Error::new(
             io::ErrorKind::Other,

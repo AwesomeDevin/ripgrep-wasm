@@ -47,6 +47,7 @@ members = [
   "crates/regex",
   "crates/searcher",
   "crates/ignore",
+  "crates/wasm",
 ]
 
 [dependencies]

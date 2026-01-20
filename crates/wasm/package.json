@@ -1,0 +1,63 @@
+{
+  "name": "@alife/grep-wasm",
+  "version": "0.1.0",
+  "description": "WebAssembly bindings for ripgrep - high-performance text search",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./node": {
+      "types": "./dist/node-helpers.d.ts",
+      "import": "./dist/node-helpers.js"
+    },
+    "./wasm": {
+      "types": "./pkg/ripgrep_wasm.d.ts",
+      "import": "./pkg/ripgrep_wasm.js"
+    }
+  },
+  "files": [
+    "dist",
+    "pkg",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build:wasm": "wasm-pack build --target web --out-dir pkg",
+    "build:ts": "tsc",
+    "build": "npm run build:wasm && npm run build:ts && cp ./pkg/ripgrep_wasm_bg.wasm ./dist/ripgrep_wasm_bg.wasm",
+    "clean": "rm -rf pkg dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ripgrep",
+    "grep",
+    "search",
+    "wasm",
+    "webassembly",
+    "text-search",
+    "regex",
+    "webcontainer"
+  ],
+  "author": "",
+  "license": "MIT OR Unlicense",
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "@types/node": "^20.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:AwesomeDevin/ripgrep-wasm.git"
+  },
+  "homepage": "https://github.com/AwesomeDevin/ripgrep-wasm#readme",
+  "bugs": {
+    "url": "https://github.com/AwesomeDevin/ripgrep-wasm/issues"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

@@ -6,7 +6,7 @@
 
 ## 📋 优化内容总览
 
-本次优化成功地简化了 ripgrep-wasm SDK，删除了冗余功能，整合了文档，大幅提升了代码质量和开发体验。
+本次优化成功地简化了 grep-wasm SDK，删除了冗余功能，整合了文档，大幅提升了代码质量和开发体验。
 
 ---
 
@@ -90,7 +90,7 @@
 ### 核心 API (2 个函数)
 
 ```typescript
-import { ripgrep } from 'ripgrep-wasm';
+import { ripgrep } from 'grep-wasm';
 
 // 1. search() - 核心搜索功能
 const results = await ripgrep.search(pattern, files, {
@@ -114,7 +114,7 @@ const filtered = await ripgrep.filterDirectoryFiles({
 ### Node.js 辅助 (2 个函数)
 
 ```typescript
-import { searchInDirectory, readDirectoryFiles } from 'ripgrep-wasm/node';
+import { searchInDirectory, readDirectoryFiles } from 'grep-wasm/node';
 
 // 3. searchInDirectory() - 自动读取并搜索
 const results = await searchInDirectory(
@@ -285,7 +285,7 @@ crates/wasm/
 
 ## 🎉 优化完成！
 
-ripgrep-wasm SDK 现在更加：
+grep-wasm SDK 现在更加：
 - **简洁** - 只保留核心功能
 - **高效** - 更小的包体积
 - **易用** - 清晰的 API 设计
@@ -297,4 +297,4 @@ ripgrep-wasm SDK 现在更加：
 
 ---
 
-**感谢使用 ripgrep-wasm！** 🚀
+**感谢使用 grep-wasm！** 🚀

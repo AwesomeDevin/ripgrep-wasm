@@ -1,8 +1,8 @@
-# @alife/grep-wasm
+# grep-wasm
 
 WebAssembly bindings for [ripgrep](https://github.com/BurntSushi/ripgrep) - blazing-fast text search for browsers and Node.js.
 
-[![npm version](https://img.shields.io/npm/v/@alife/grep-wasm.svg)](https://www.npmjs.com/package/@alife/grep-wasm)
+[![npm version](https://img.shields.io/npm/v/grep-wasm.svg)](https://www.npmjs.com/package/grep-wasm)
 [![GitHub](https://img.shields.io/github/stars/AwesomeDevin/ripgrep-wasm?style=social)](https://github.com/AwesomeDevin/ripgrep-wasm)
 [![License: MIT OR Unlicense](https://img.shields.io/badge/license-MIT%20OR%20Unlicense-blue.svg)](LICENSE)
 
@@ -21,17 +21,17 @@ WebAssembly bindings for [ripgrep](https://github.com/BurntSushi/ripgrep) - blaz
 ## 📦 Installation
 
 ```bash
-npm install @alife/grep-wasm
+npm install grep-wasm
 ```
 
 或使用其他包管理器：
 
 ```bash
 # pnpm
-pnpm add @alife/grep-wasm
+pnpm add grep-wasm
 
 # yarn
-yarn add @alife/grep-wasm
+yarn add grep-wasm
 ```
 
 ---
@@ -41,7 +41,7 @@ yarn add @alife/grep-wasm
 ### Basic Search
 
 ```typescript
-import { ripgrep } from '@alife/grep-wasm';
+import { ripgrep } from 'grep-wasm';
 
 // Search for a pattern in files
 const results = await ripgrep.search('function', [
@@ -62,7 +62,7 @@ results.matches.forEach(match => {
 ### Node.js Directory Search
 
 ```typescript
-import { searchInDirectory } from '@alife/grep-wasm/node';
+import { searchInDirectory } from 'grep-wasm/node';
 
 // Automatically search all files in a directory
 const results = await searchInDirectory(
@@ -710,7 +710,7 @@ console.log(`Filtered ${filtered.length} files`);
 ### Convenience Functions
 
 ```typescript
-import { search, filterDirectoryFiles } from '@alife/grep-wasm';
+import { search, filterDirectoryFiles } from 'grep-wasm';
 
 // Same as ripgrep.search(...)
 const results = await search(pattern, files, options);
@@ -723,7 +723,7 @@ const filtered = await filterDirectoryFiles(config, filePaths);
 
 ## 🟢 Node.js Helper Functions
 
-The `@alife/grep-wasm/node` module provides convenient directory search functions that automatically handle file system access.
+The `grep-wasm/node` module provides convenient directory search functions that automatically handle file system access.
 
 ### `searchInDirectory(dirPath, pattern, options?)`
 
@@ -753,7 +753,7 @@ results.matches.forEach(match => {
 Recursively read all files from a directory.
 
 ```typescript
-import { readDirectoryFiles } from '@alife/grep-wasm/node';
+import { readDirectoryFiles } from 'grep-wasm/node';
 
 const files = await readDirectoryFiles('/project', {
   fileTypes: ['*.js'],
@@ -936,7 +936,7 @@ byFile.forEach((matches, file) => {
 ### 2. Search in Web-Based IDE
 
 ```typescript
-import { ripgrep } from '@alife/grep-wasm';
+import { ripgrep } from 'grep-wasm';
 
 async function searchInProject(pattern: string, options?: SearchOptions) {
   // Get files from virtual file system (WebContainer, browser File API, etc.)
@@ -971,10 +971,10 @@ console.log(`Found matches in ${filePaths.length} files`);
 
 ## 🛡️ Error Handling
 
-@alife/grep-wasm provides structured error handling with detailed error information.
+grep-wasm provides structured error handling with detailed error information.
 
 ```typescript
-import { ripgrep, RipgrepException } from '@alife/grep-wasm';
+import { ripgrep, RipgrepException } from 'grep-wasm';
 
 try {
   const results = await ripgrep.search('[invalid(regex', files);
@@ -1103,7 +1103,7 @@ await ripgrep.init();  // Do this once at app startup
 // vite.config.js
 export default {
   optimizeDeps: {
-    exclude: ['@alife/grep-wasm']
+    exclude: ['grep-wasm']
   }
 }
 ```
@@ -1111,7 +1111,7 @@ export default {
 ### Node.js
 
 - Works out of the box with ESM (recommended) or CommonJS
-- Use `@alife/grep-wasm/node` for directory-based search
+- Use `grep-wasm/node` for directory-based search
 - Direct file system access via helper functions
 
 ---
@@ -1120,7 +1120,7 @@ export default {
 
 ### Why No Direct Directory Search in Core SDK?
 
-The core SDK (`@alife/grep-wasm`) **does not** directly access the file system because:
+The core SDK (`grep-wasm`) **does not** directly access the file system because:
 - 🌐 **Browsers**: WASM cannot access local file system (security)
 - 📦 **WebContainer**: Requires virtual FS APIs
 - 🟢 **Node.js**: Needs `fs` module integration
@@ -1145,15 +1145,15 @@ The core SDK (`@alife/grep-wasm`) **does not** directly access the file system b
 
 ### Node.js Integration
 
-For Node.js, we provide `@alife/grep-wasm/node` which automatically handles file system operations:
+For Node.js, we provide `grep-wasm/node` which automatically handles file system operations:
 
 ```typescript
 // Node.js - Automatic file reading
-import { searchInDirectory } from '@alife/grep-wasm/node';
+import { searchInDirectory } from 'grep-wasm/node';
 const results = await searchInDirectory('./src', 'pattern');
 
 // Browser/WebContainer - Manual file reading
-import { search } from '@alife/grep-wasm';
+import { search } from 'grep-wasm';
 const files = await readFilesManually();  // Your implementation
 const results = await search('pattern', files);
 ```
@@ -1165,7 +1165,7 @@ const results = await search('pattern', files);
 Full TypeScript support with comprehensive type definitions.
 
 ```typescript
-import { ripgrep, SearchResult, FileEntry, SearchOptions } from '@alife/grep-wasm';
+import { ripgrep, SearchResult, FileEntry, SearchOptions } from 'grep-wasm';
 
 const files: FileEntry[] = [
   { path: 'test.js', content: 'function test() {}' }
@@ -1199,7 +1199,7 @@ Yes! The module works perfectly in web workers for non-blocking search:
 
 ```typescript
 // In worker.js
-import { ripgrep } from '@alife/grep-wasm';
+import { ripgrep } from 'grep-wasm';
 
 self.onmessage = async (e) => {
   const { pattern, files } = e.data;
@@ -1221,7 +1221,7 @@ This WASM version provides a subset of ripgrep's functionality optimized for bro
 Yes! The package works with plain JavaScript:
 
 ```javascript
-const { ripgrep } = require('@alife/grep-wasm');
+const { ripgrep } = require('grep-wasm');
 
 const results = await ripgrep.search('pattern', files);
 console.log(results.totalMatches);
@@ -1233,7 +1233,7 @@ console.log(results.totalMatches);
 
 ### Basic Search
 ```typescript
-import { search } from '@alife/grep-wasm';
+import { search } from 'grep-wasm';
 
 // Simple search
 const results = await search('hello', files);
@@ -1247,7 +1247,7 @@ const results = await search('main', files, { wordBoundary: true });
 
 ### Advanced Filtering
 ```typescript
-import { filterDirectoryFiles } from '@alife/grep-wasm';
+import { filterDirectoryFiles } from 'grep-wasm';
 
 const filtered = await filterDirectoryFiles({
   rootPath: '/project',
@@ -1262,7 +1262,7 @@ const filtered = await filterDirectoryFiles({
 
 ### Node.js Directory Search
 ```typescript
-import { searchInDirectory, readDirectoryFiles } from '@alife/grep-wasm/node';
+import { searchInDirectory, readDirectoryFiles } from 'grep-wasm/node';
 
 // Automatic search
 const results = await searchInDirectory('./src', 'pattern', {
@@ -1282,7 +1282,7 @@ const results = await search('pattern', files);
 
 ## 🌟 Comparison
 
-| Feature | @alife/grep-wasm | grep.js | Native ripgrep |
+| Feature | grep-wasm | grep.js | Native ripgrep |
 |---------|--------------|---------|----------------|
 | Performance | ⚡ Fast | 🐌 Slow | 🚀 Fastest |
 | TypeScript | ✅ Native | ❌ None | ❌ N/A |

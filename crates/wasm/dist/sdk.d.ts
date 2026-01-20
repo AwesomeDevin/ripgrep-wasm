@@ -1,7 +1,7 @@
 import type { FileEntry, SearchOptions, SearchResult, DirectorySearchConfig, FilePathEntry } from './types';
 export { RipgrepException } from './errors';
 /**
- * High-level TypeScript API for ripgrep-wasm
+ * High-level TypeScript API for grep-wasm
  */
 export declare class RipgrepWasm {
     private initialized;

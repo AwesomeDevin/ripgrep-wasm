@@ -1,5 +1,5 @@
 {
-  "name": "@alife/grep-wasm",
+  "name": "grep-wasm",
   "version": "0.1.0",
   "description": "WebAssembly bindings for ripgrep - high-performance text search",
   "type": "module",
@@ -8,8 +8,7 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": "./dist/index.js"
     },
     "./node": {
       "types": "./dist/node-helpers.d.ts",
@@ -21,17 +20,25 @@
     }
   },
   "files": [
-    "dist",
-    "pkg",
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
+    "!dist/**/*.map",
+    "pkg/*.wasm",
+    "pkg/*.js",
+    "pkg/*.d.ts",
     "README.md",
     "LICENSE"
   ],
   "scripts": {
+    "clean": "rm -rf dist *.tgz",
     "build:wasm": "wasm-pack build --target web --out-dir pkg",
     "build:ts": "tsc",
-    "build": "npm run build:wasm && npm run build:ts && cp ./pkg/ripgrep_wasm_bg.wasm ./dist/ripgrep_wasm_bg.wasm",
-    "clean": "rm -rf pkg dist",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run build:ts && cp ./pkg/ripgrep_wasm_bg.wasm ./dist/ripgrep_wasm_bg.wasm",
+    "prepublishOnly": "npm run clean && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:types": "tsc --noEmit",
+    "pack:dry": "npm pack --dry-run",
+    "pack:test": "npm pack"
   },
   "keywords": [
     "ripgrep",
@@ -43,8 +50,12 @@
     "regex",
     "webcontainer"
   ],
-  "author": "",
+  "author": "AwesomeDevin",
+  "contributors": [
+    "ripgrep contributors"
+  ],
   "license": "MIT OR Unlicense",
+  "sideEffects": false,
   "devDependencies": {
     "typescript": "^5.3.0",
     "@types/node": "^20.0.0"

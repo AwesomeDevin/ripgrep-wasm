@@ -2,7 +2,7 @@
  * Node.js helper functions for directory-based search
  *
  * These helpers provide convenient directory search functionality
- * by combining Node.js file system APIs with ripgrep-wasm.
+ * by combining Node.js file system APIs with grep-wasm.
  */
 import * as fs from 'fs';
 import * as path from 'path';

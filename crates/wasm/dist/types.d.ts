@@ -1,5 +1,5 @@
 /**
- * TypeScript type definitions for ripgrep-wasm
+ * TypeScript type definitions for grep-wasm
  */
 /**
  * Represents a file to be searched
@@ -170,7 +170,7 @@ export type ErrorDetails = {
     details: SerializationErrorDetails;
 };
 /**
- * Structured error from ripgrep-wasm
+ * Structured error from grep-wasm
  */
 export interface RipgrepError {
     type: RipgrepErrorKind;

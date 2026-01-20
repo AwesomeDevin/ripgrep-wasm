@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "🔧 Building ripgrep-wasm..."
+echo "🔧 Building grep-wasm..."
 echo ""
 
 # Colors

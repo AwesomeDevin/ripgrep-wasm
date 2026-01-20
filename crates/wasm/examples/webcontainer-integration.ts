@@ -1,7 +1,7 @@
 /**
  * WebContainer Integration Example
  * 
- * Demonstrates how to integrate ripgrep-wasm with WebContainer environments
+ * Demonstrates how to integrate grep-wasm with WebContainer environments
  */
 
 import { ripgrep } from '../js/index';

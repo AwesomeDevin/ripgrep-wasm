@@ -78,7 +78,7 @@ function convertFilePathEntry(entry: any): FilePathEntry {
 }
 
 /**
- * High-level TypeScript API for ripgrep-wasm
+ * High-level TypeScript API for grep-wasm
  */
 export class RipgrepWasm {
   private initialized = false;
@@ -99,7 +99,7 @@ export class RipgrepWasm {
 
     this.initPromise = init().then(() => {
       this.initialized = true;
-    });
+    }) as Promise<void>;
 
     return this.initPromise;
   }

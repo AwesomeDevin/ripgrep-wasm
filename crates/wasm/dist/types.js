@@ -1,5 +1,5 @@
 /**
- * TypeScript type definitions for ripgrep-wasm
+ * TypeScript type definitions for grep-wasm
  */
 /**
  * Error kinds for ripgrep operations

@@ -1,4 +1,4 @@
-# API 参考文档 - @alife/grep-wasm
+# API 参考文档 - grep-wasm
 
 完整的 API 参数和返回值说明。
 
@@ -413,7 +413,7 @@ enum RipgrepErrorKind {
 ### 使用示例
 
 ```typescript
-import { ripgrep, RipgrepException } from '@alife/grep-wasm';
+import { ripgrep, RipgrepException } from 'grep-wasm';
 
 try {
   const results = await ripgrep.search('[invalid(regex', files);
@@ -473,7 +473,7 @@ await search('TODO', files, { fixedStrings: true });
 ### 基础搜索
 
 ```typescript
-import { search } from '@alife/grep-wasm';
+import { search } from 'grep-wasm';
 
 const files = [
   { path: 'main.ts', content: 'function main() { /* TODO */ }' }
@@ -489,7 +489,7 @@ console.log(`找到 ${results.totalMatches} 个匹配`);
 ### 目录搜索（Node.js）
 
 ```typescript
-import { searchInDirectory } from '@alife/grep-wasm/node';
+import { searchInDirectory } from 'grep-wasm/node';
 
 const results = await searchInDirectory(
   './src',

@@ -1,11 +1,11 @@
 /**
- * ripgrep-wasm - WebAssembly bindings for ripgrep
+ * grep-wasm - WebAssembly bindings for ripgrep
  * 
  * High-level TypeScript API for searching files using ripgrep in WebAssembly.
  * 
  * @example
  * ```typescript
- * import { ripgrep } from 'ripgrep-wasm';
+ * import { ripgrep } from 'grep-wasm';
  * 
  * const results = await ripgrep.search('pattern', [
  *   { path: 'file.ts', content: '...' }
@@ -18,7 +18,7 @@
  * 
  * @example Node.js directory search
  * ```typescript
- * import { searchInDirectory } from 'ripgrep-wasm/node';
+ * import { searchInDirectory } from 'grep-wasm/node';
  * 
  * const results = await searchInDirectory('/project/src', 'pattern', {
  *   fileTypes: ['*.js', '*.ts'],

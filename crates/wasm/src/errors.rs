@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 use wasm_bindgen::prelude::*;
 
-/// Error kinds for ripgrep-wasm operations
+/// Error kinds for grep-wasm operations
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(tag = "type", content = "details")]
 pub enum ErrorKind {
@@ -41,7 +41,7 @@ pub enum ErrorKind {
     },
 }
 
-/// Structured error type for ripgrep-wasm
+/// Structured error type for grep-wasm
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct RipgrepError {
     /// The kind of error

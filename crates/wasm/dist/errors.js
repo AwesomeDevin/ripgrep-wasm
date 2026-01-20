@@ -1,5 +1,5 @@
 /**
- * Exception class for ripgrep-wasm errors
+ * Exception class for grep-wasm errors
  */
 export class RipgrepException extends Error {
     constructor(error) {

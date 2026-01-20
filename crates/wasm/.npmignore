@@ -1,0 +1,43 @@
+# Source files
+src/
+js/
+examples/
+*.rs
+Cargo.toml
+Cargo.lock
+tsconfig*.json
+tsup.config.ts
+build.sh
+
+# Development docs
+VERIFICATION_REPORT.md
+PACKAGE_NAME_UPDATE.md
+FINAL_SUMMARY.md
+API_REFERENCE.md
+
+# Build artifacts
+target/
+node_modules/
+.DS_Store
+*.map
+
+# Test files
+*.test.ts
+*.spec.ts
+__tests__/
+
+# Lock files
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tgz
+*.log

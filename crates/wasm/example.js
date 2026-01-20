@@ -1,5 +1,5 @@
 /**
- * Example usage of ripgrep-wasm
+ * Example usage of grep-wasm
  * 
  * This example demonstrates how to use the WASM module in a webcontainer environment.
  * 
@@ -40,7 +40,7 @@ pub fn multiply(a: i32, b: i32) -> i32 {
       content: `# My Project
 
 This is a sample project.
-It demonstrates how to use ripgrep-wasm.`
+It demonstrates how to use grep-wasm.`
     }
   ];
 

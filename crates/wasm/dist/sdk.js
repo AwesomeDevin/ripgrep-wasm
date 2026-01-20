@@ -48,7 +48,7 @@ function convertFilePathEntry(entry) {
     };
 }
 /**
- * High-level TypeScript API for ripgrep-wasm
+ * High-level TypeScript API for grep-wasm
  */
 export class RipgrepWasm {
     constructor() {

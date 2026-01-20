@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to ripgrep-wasm will be documented in this file.
+All notable changes to grep-wasm will be documented in this file.
 
 ## [0.1.0] - 2026-01-19
 
@@ -116,7 +116,7 @@ Typical performance on modern hardware:
 
 **Before:**
 ```typescript
-import { search as wasmSearch } from 'ripgrep-wasm/wasm';
+import { search as wasmSearch } from 'grep-wasm/wasm';
 const filesJson = JSON.stringify(files);
 const optionsJson = JSON.stringify({ case_insensitive: true });
 const resultJson = wasmSearch('pattern', filesJson, optionsJson);
@@ -125,7 +125,7 @@ const result = JSON.parse(resultJson);
 
 **After:**
 ```typescript
-import { search } from 'ripgrep-wasm';
+import { search } from 'grep-wasm';
 const result = await search('pattern', files, {
   caseInsensitive: true
 });
@@ -133,7 +133,7 @@ const result = await search('pattern', files, {
 
 ### ⚠️ Breaking Changes
 
-None - This is the initial release of the high-level API. The low-level WASM API remains unchanged and accessible via `ripgrep-wasm/wasm` export.
+None - This is the initial release of the high-level API. The low-level WASM API remains unchanged and accessible via `grep-wasm/wasm` export.
 
 ### 🎯 Roadmap
 
